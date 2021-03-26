@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { setRem } from "../../styles";
+import { mediaMax, setRem } from "../../styles";
 
 export const Container = styled.div`
   min-height: 692px;
@@ -86,16 +86,23 @@ export const Form = styled.form`
   max-width: 720px;
   height: auto;
   width: 100%;
-  z-index: 1;
   display: block;
   margin: 0 auto;
   padding: 50px 32px;
   border-radius: 4px;
   box-shadow: 0 1px rgba(0, 0, 0, 0.9);
-  @media screen and (max-width: 400px) {
+ 
+
+  ${mediaMax.phone`
+  {
     padding: 16px 16px;
-   
+     width:  100%;
+     margin: 0 auto;
+     display: grid;
+     width: 100%;
+  
   }
+  `};
 `;
 
 export const FormH1 = styled.h1`
