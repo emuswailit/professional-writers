@@ -6,9 +6,17 @@ import {
   setBorder,
   setLetterSpacing,
   setTransition,
+  mediaMax,
 } from "../../styles";
 
 export const PrimaryButton = styled.button`
+  ${mediaMax.phone`
+  {
+     width:  90%;
+  
+  }
+  `};
+
   display: inline-block;
   ${(props) => `background: ${props.theme.primaryColor}`};
   ${(props) => `color: ${props.theme.secondaryColor}`};
@@ -17,7 +25,7 @@ export const PrimaryButton = styled.button`
 
   ${setFont.main};
   ${setTransition({ time: "2s" })};
-  padding: ${setRem(17)} ${setRem(36)}  ${setRem()};
+  padding: ${setRem(17)} ${setRem(36)} ${setRem()};
   ${setBorder({ color: setColor.primaryColor })};
   ${setLetterSpacing(3)};
   &:hover {

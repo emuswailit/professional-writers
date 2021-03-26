@@ -1,21 +1,98 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { setFlex } from "../../styles";
+import { PrimaryButton } from "../globals/Buttons";
+import FileUpload from "../globals/FileUpload";
+import {
+  Column,
+  Form,
+  FormH1,
+  FormInput,
+  FormLabel,
+  FormTextArea,
+  Row,
+  FormSelect
+  
+} from "../globals/FormElements";
 
 const Content = ({ className }) => {
+  const [newUserInfo, setNewUserInfo] = useState({
+    profileImages: []
+  });
+
+  const updateUploadedFiles = (files) =>
+    setNewUserInfo({ ...newUserInfo, profileImages: files });
   return (
-    <section className={className}>
-      <h3>section title</h3>
-      <p>
-        Nulla enim ullamco ad dolor id minim ex eiusmod pariatur exercitation
-        anim labore cupidatat. Labore nostrud do nisi eiusmod pariatur eu sunt
-        proident eiusmod magna sunt nisi id voluptate. Incididunt non eiusmod
-        eiusmod Lorem. Ullamco anim esse mollit reprehenderit laboris nostrud ex
-        aliqua quis. Sint irure dolor aliqua ad exercitation et fugiat. Id culpa
-        ipsum laboris officia consequat amet pariatur sint anim nisi deserunt
-        ex.
-      </p>
-    </section>
+    <div className={className}>
+      <Form>
+        <FormH1>Enter details below to and submit. We will contact you immediately with a ready quote or if necessary further consultation.</FormH1>
+        <Row>
+          <Column>
+            <FormLabel>Your full names</FormLabel>
+          </Column>
+          <Column>
+            <FormInput type="text" />
+          </Column>
+        </Row>
+        <Row>
+          <Column>
+            <FormLabel>Email address</FormLabel>
+          </Column>
+          <Column>
+            <FormInput type="email" />
+          </Column>
+        </Row>
+
+        <Row>
+          <Column>
+            <FormLabel>Phone contact</FormLabel>
+          </Column>
+          <Column>
+            <FormInput type="phone" />
+          </Column>
+        </Row>
+     
+        <Row>
+          <Column>
+            <FormLabel>Job type</FormLabel>
+          </Column>
+          <Column>
+            <FormSelect>
+            <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="mercedes">Mercedes</option>
+  <option value="audi">Audi</option>
+            </FormSelect>
+          </Column>
+        </Row>
+        <Row>
+          <Column>
+            <FormLabel>Short message</FormLabel>
+          </Column>
+          <Column>
+            <FormTextArea rows="4" />
+          </Column>
+        </Row>
+        <Row>
+          <Column>
+            <FormLabel>Upload file</FormLabel>
+          </Column>
+          <Column>
+          <FileUpload
+          accept=".jpg,.png,.jpeg,.pdf"
+         
+          multiple
+          updateFilesCb={updateUploadedFiles}
+        />
+          </Column>
+        </Row>
+        <Row>
+          <Column>
+            <PrimaryButton>Submit</PrimaryButton>
+          </Column>
+        </Row>
+      </Form>
+    </div>
   );
 };
 
