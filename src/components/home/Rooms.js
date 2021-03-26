@@ -16,7 +16,7 @@ export default class Rooms extends Component {
     console.log("Rooms", this.state.rooms);
     return (
       <Section color={setColor.lightGrey}>
-        <Title title="our rooms" center />
+        <Title title="what we do" center />
         <RoomCenter>
           {this.state.rooms.map((room) => {
             return <Room key={room.id} room={room} />;

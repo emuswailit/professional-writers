@@ -3,10 +3,10 @@ import About from "../components/home/About";
 import Header from "../components/home/Header";
 import Rooms from "../components/home/Rooms";
 
-const Home = () => {
+const Home = (props) => {
   return (
     <>
-      <Header />
+      <Header {...props} />
       <About />
       <Rooms />
     </>

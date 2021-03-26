@@ -7,14 +7,13 @@ const Title = ({ className, title, center }) => {
 };
 
 export default styled(Title)`
-  ${(props) => `color: ${props.theme.primaryColor}`};
-  font-size: ${setRem(36)};
+  ${(props) => `color: ${props.theme.secondaryColor}`};
+  font-size: ${setRem(30)};
   text-transform: capitalize;
   ${setLetterSpacing(5)};
   ${setFont.main};
   text-align: ${(props) => (props.center ? "center" : "left")};
 `;
-
 
 // export default styled(Title)`
 //   font-size: ${setRem(36)};
